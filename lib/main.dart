@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:reservas_tardo/ui/acceso/ui/login_screen.dart';
+import 'package:reservas_tardo/ui/acceso/ui/register_screen.dart';
 
 void main() {
   runApp(const MyApp());

@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:reservas_tardo/ui/acceso/ui/register_screen.dart';
 import 'package:reservas_tardo/ui/core/ui/boton_login.dart';
 import 'package:reservas_tardo/ui/core/ui/boton_registro.dart';
 
@@ -10,17 +12,32 @@ class Login extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFF2E8C7),
       appBar: AppBar(
-        title: const Text("Reservas Tardos - Login"),
+        title: const Text("Reservas Tardos · Login"),
         titleTextStyle: TextStyle(fontSize: 18, color: Colors.white),
-        backgroundColor: Colors.black,
+        backgroundColor: Color.fromARGB(255, 18, 11, 11),
         // elevation: 0,
       ),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
+          Center(
+            child: Image.asset(
+              'assets/images/ejemplo_sala.png',
+              width: double.infinity,
+              height: 290,
+              fit: BoxFit.cover,
+            ),
+          ),
+
+          const SizedBox(height: 6),
+
           const Text(
             "Iniciar sesión",
-            style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
+            style: TextStyle(
+              fontSize: 48,
+              fontWeight: FontWeight.bold,
+              color: Color.fromARGB(255, 18, 11, 11),
+            ),
           ),
           const SizedBox(height: 24),
 
@@ -32,7 +49,7 @@ class Login extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8.0),
-                color: const Color(0xFF5D9178),
+                color: const Color(0xFF5C5F9E),
               ),
               child: Center(
                 child: TextFormField(
@@ -62,7 +79,7 @@ class Login extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8.0),
-                color: const Color(0xFF5D9178),
+                color: const Color(0xFF5C5F9E),
               ),
               child: Center(
                 child: TextFormField(
@@ -85,14 +102,19 @@ class Login extends StatelessWidget {
 
           const SizedBox(height: 16),
 
-          SizedBox(
-            child: BotonLogin(
-              texto: "ENTRAR",
-              icono: Icons.login_rounded,
-              color: Color(0xFF5C5F9E),
-              onPressed: () {
-                print("Sesión iniciada");
-              },
+          Align(
+            alignment: Alignment.center,
+            child: SizedBox(
+              width: 200.0,
+              height: 69.0,
+              child: BotonLogin(
+                texto: "ENTRAR",
+                icono: CupertinoIcons.square_arrow_right,
+                color: Color(0xFF5D9178),
+                onPressed: () {
+                  print("Sesión iniciada");
+                },
+              ),
             ),
           ),
 
@@ -114,7 +136,10 @@ class Login extends StatelessWidget {
                 texto: "Crear cuenta",
                 color: Color(0xFFA753AD),
                 onPressed: () {
-                  print("Nueva cuenta");
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Register()),
+                  );
                 },
               ),
             ),
