@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:reservas_tardo/ui/acceso/ui/login_screen.dart';
-import 'package:reservas_tardo/ui/acceso/ui/register_screen.dart';
+import 'package:reservas_tardo/ui/perfil/ui/perfil_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         fontFamily: "PlayfairDisplay",
         colorScheme: .fromSeed(seedColor: const Color.fromARGB(255, 0, 0, 0)),
       ),
-      home: const Login(),
+      home: const UserProfile(),
     );
   }
 }

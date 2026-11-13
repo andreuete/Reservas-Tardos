@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:reservas_tardo/ui/acceso/ui/register_screen.dart';
-import 'package:reservas_tardo/ui/core/ui/boton_login.dart';
-import 'package:reservas_tardo/ui/core/ui/boton_registro.dart';
+import 'package:reservas_tardo/ui/core/ui/boton_grande.dart';
+import 'package:reservas_tardo/ui/core/ui/boton.dart';
 
 class Login extends StatelessWidget {
   final bool mostrarFlecha;
@@ -115,7 +115,7 @@ class Login extends StatelessWidget {
             alignment: Alignment.center,
             child: SizedBox(
               height: 50.0,
-              child: BotonLogin(
+              child: BotonGrande(
                 texto: "ENTRAR",
                 icono: CupertinoIcons.square_arrow_right,
                 color: Color(0xFF5D9178),
@@ -140,7 +140,7 @@ class Login extends StatelessWidget {
             child: SizedBox(
               width: 170.0,
               height: 33.0,
-              child: BotonRegistro(
+              child: Boton(
                 texto: "Crear cuenta",
                 color: Color(0xFFA753AD),
                 onPressed: () {

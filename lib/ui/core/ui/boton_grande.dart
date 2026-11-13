@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class BotonLogin extends StatelessWidget {
+class BotonGrande extends StatelessWidget {
   final String texto;
   final IconData icono;
   final VoidCallback? onPressed;
   final Color? color;
   final double tamanoIcono;
 
-  const BotonLogin({
+  const BotonGrande({
     super.key,
     required this.texto,
     required this.icono,
@@ -20,7 +20,10 @@ class BotonLogin extends StatelessWidget {
   Widget build(BuildContext context) {
     return FilledButton.icon(
       onPressed: onPressed,
-      style: FilledButton.styleFrom(backgroundColor: color),
+      style: FilledButton.styleFrom(
+        backgroundColor: color,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
+      ),
       icon: Icon(icono, size: tamanoIcono),
       label: Text(
         texto,

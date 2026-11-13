@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
 
-class BotonRegistro extends StatelessWidget {
+class Boton extends StatelessWidget {
   final String texto;
   final VoidCallback? onPressed;
   final Color? color;
 
-  const BotonRegistro({
-    super.key,
-    required this.texto,
-    this.onPressed,
-    this.color,
-  });
+  const Boton({super.key, required this.texto, this.onPressed, this.color});
 
   @override
   Widget build(BuildContext context) {

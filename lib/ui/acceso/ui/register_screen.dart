@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:reservas_tardo/ui/acceso/ui/login_screen.dart';
-import 'package:reservas_tardo/ui/core/ui/boton_login.dart';
-import 'package:reservas_tardo/ui/core/ui/boton_registro.dart';
+import 'package:reservas_tardo/ui/core/ui/boton_grande.dart';
+import 'package:reservas_tardo/ui/core/ui/boton.dart';
 import 'package:flutter/cupertino.dart';
 
 class Register extends StatelessWidget {
@@ -160,7 +160,7 @@ class Register extends StatelessWidget {
             alignment: Alignment.center,
             child: SizedBox(
               height: 50.0,
-              child: BotonLogin(
+              child: BotonGrande(
                 texto: "REGISTRAR",
                 icono: CupertinoIcons.person_crop_circle_fill,
                 color: Color.fromARGB(255, 93, 145, 120),
@@ -227,7 +227,7 @@ class Register extends StatelessWidget {
             child: SizedBox(
               width: 170.0,
               height: 33.0,
-              child: BotonRegistro(
+              child: Boton(
                 texto: "Iniciar sesión",
                 color: Color(0xFFA753AD),
                 onPressed: () {
