@@ -22,7 +22,10 @@ class BotonLogin extends StatelessWidget {
       onPressed: onPressed,
       style: FilledButton.styleFrom(backgroundColor: color),
       icon: Icon(icono, size: tamanoIcono),
-      label: Text(texto, style: const TextStyle(fontSize: 32)),
+      label: Text(
+        texto,
+        style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+      ),
     );
   }
 }
