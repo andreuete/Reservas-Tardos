@@ -51,61 +51,54 @@ class Register extends StatelessWidget {
           CampoTexto(texto: "Confirmar contraseña", ocultarTexto: true),
 
           const SizedBox(height: 16),
-          Align(
-            alignment: Alignment.center,
-            child: SizedBox(
-              height: 50.0,
-              child: BotonGrande(
-                texto: "REGISTRAR",
-                icono: CupertinoIcons.person_crop_circle_fill,
-                color: Color.fromARGB(255, 93, 145, 120),
-                tamanoIcono: 40,
-                onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (context) => AlertDialog(
-                      backgroundColor: Colors.white,
-                      title: const Column(
-                        children: [
-                          Icon(
-                            Icons.check_circle,
-                            color: Color(0xFF5D9178),
-                            size: 60,
-                          ),
-                          SizedBox(height: 12),
-                          Text(
-                            "¡Registro completado!",
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
+
+          BotonGrande(
+            texto: "REGISTRAR",
+            icono: CupertinoIcons.person_crop_circle_fill,
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                  backgroundColor: Colors.white,
+                  title: const Column(
+                    children: [
+                      Icon(
+                        Icons.check_circle,
+                        color: Color(0xFF5D9178),
+                        size: 60,
                       ),
-                      content: const Text(
-                        "Te has registrado correctamente.",
+                      SizedBox(height: 12),
+                      Text(
+                        "¡Registro completado!",
                         textAlign: TextAlign.center,
                       ),
-                      actions: [
-                        TextButton(
-                          onPressed: () {
-                            Navigator.pop(context); // Cierra el AlertDialog
+                    ],
+                  ),
+                  content: const Text(
+                    "Te has registrado correctamente.",
+                    textAlign: TextAlign.center,
+                  ),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pop(context); // Cierra el AlertDialog
 
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const Login(),
-                              ),
-                            );
-                          },
-                          child: const Text(
-                            "Aceptar",
-                            style: TextStyle(color: Color(0xFF5C5F9E)),
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Login(),
                           ),
-                        ),
-                      ],
+                        );
+                      },
+                      child: const Text(
+                        "Aceptar",
+                        style: TextStyle(color: Color(0xFF5C5F9E)),
+                      ),
                     ),
-                  );
-                },
-              ),
-            ),
+                  ],
+                ),
+              );
+            },
           ),
 
           const SizedBox(height: 24),

@@ -4,30 +4,31 @@ class BotonGrande extends StatelessWidget {
   final String texto;
   final IconData icono;
   final VoidCallback? onPressed;
-  final Color? color;
-  final double tamanoIcono;
 
   const BotonGrande({
     super.key,
     required this.texto,
     required this.icono,
     this.onPressed,
-    this.color,
-    this.tamanoIcono = 24,
   });
 
   @override
   Widget build(BuildContext context) {
-    return FilledButton.icon(
-      onPressed: onPressed,
-      style: FilledButton.styleFrom(
-        backgroundColor: color,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
-      ),
-      icon: Icon(icono, size: tamanoIcono),
-      label: Text(
-        texto,
-        style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+    return SizedBox(
+      height: 50,
+      width: double.infinity,
+      child: FilledButton.icon(
+        onPressed: onPressed,
+        style: FilledButton.styleFrom(
+          backgroundColor: const Color(0xFF5D9178),
+          foregroundColor: Colors.black,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
+        ),
+        icon: Icon(icono, size: 24),
+        label: Text(
+          texto,
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
       ),
     );
   }
