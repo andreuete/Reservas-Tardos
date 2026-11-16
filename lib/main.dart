@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:reservas_tardo/ui/core/ui/espacio_tarjeta.dart';
+import 'package:reservas_tardo/ui/core/ui/main_navigation.dart';
+import 'package:reservas_tardo/ui/core/ui/reserva_tarjeta.dart';
+import 'package:reservas_tardo/ui/espacios/ui/espacios_screen.dart';
+import 'package:reservas_tardo/ui/reservas/ui/mis_reservas_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,9 +16,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
-      home: const MyHomePage(),
+      home: MainNavigation(),
     );
   }
 }
@@ -24,24 +29,6 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Catálogo de salas')),
-      body: ListView(
-        children: [
-          EspacioTarjeta(nombre_sala: "Sala 1", personas: 21, zona: "Interior"),
-          EspacioTarjeta(
-            nombre_sala: "Sala 2",
-            personas: 23,
-            tipo: "Presentaciones",
-          ),
-          EspacioTarjeta(
-            nombre_sala: "Wc",
-            personas: 1,
-            zona: "Privada",
-            tipo: "Necesidades",
-          ),
-        ],
-      ),
-    );
+    return MyApp();
   }
 }
