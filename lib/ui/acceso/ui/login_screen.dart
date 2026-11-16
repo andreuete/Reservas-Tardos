@@ -59,15 +59,22 @@ class Login extends StatelessWidget {
 
           const SizedBox(height: 16),
 
-          BotonGrande(
-            texto: "ENTRAR",
-            icono: CupertinoIcons.square_arrow_right,
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const MainNavigation()),
-              );
-            },
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              BotonGrande(
+                texto: "ENTRAR",
+                icono: CupertinoIcons.square_arrow_right,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const MainNavigation(),
+                    ),
+                  );
+                },
+              ),
+            ],
           ),
 
           const SizedBox(height: 24),

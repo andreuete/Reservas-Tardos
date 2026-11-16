@@ -16,7 +16,6 @@ class BotonGrande extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 50,
-      width: double.infinity,
       child: FilledButton.icon(
         onPressed: onPressed,
         style: FilledButton.styleFrom(
@@ -24,10 +23,14 @@ class BotonGrande extends StatelessWidget {
           foregroundColor: Colors.black,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
         ),
-        icon: Icon(icono, size: 24),
+        icon: Icon(icono, size: 24, color: Colors.white),
         label: Text(
           texto,
-          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          style: const TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
         ),
       ),
     );

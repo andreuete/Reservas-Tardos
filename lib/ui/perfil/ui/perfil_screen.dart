@@ -53,7 +53,7 @@ class UserProfile extends StatelessWidget {
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
-                color: Color.fromARGB(255, 92, 95, 147),
+                color: Color.fromARGB(255, 167, 83, 173),
               ),
               child: Row(
                 children: [
