@@ -1,21 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:reservas_tardo/ui/components/generic/AppbarIcono.dart';
 import 'package:reservas_tardo/ui/core/ui/reserva_tarjeta.dart';
 
 class MisReservasScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Mis reservas'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.account_circle),
-            onPressed: () {
-              print('Perfil pulsado');
-            },
-          ),
-        ],
-      ),
+      appBar: AppbarIcono(NombrePagina: "Mis reservas"),
       body: ListView(
         children: [
           ReservaTarjeta(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reservas_tardo/ui/components/generic/AppbarIcono.dart';
 
 class NuevaReservaScreen extends StatelessWidget {
   const NuevaReservaScreen({super.key});
@@ -6,17 +7,7 @@ class NuevaReservaScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Nueva reserva'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.account_circle),
-            onPressed: () {
-              print('Perfil pulsado');
-            },
-          ),
-        ],
-      ),
+      appBar: AppbarIcono(NombrePagina: "Nueva reserva"),
       body: ListView(
         children: [
           Container(
