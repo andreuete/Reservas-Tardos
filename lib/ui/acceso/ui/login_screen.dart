@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:reservas_tardo/ui/acceso/ui/register_screen.dart';
+import 'package:reservas_tardo/ui/components/generic/TextoApp.dart';
+import 'package:reservas_tardo/ui/components/login/ContainerForm.dart';
 import 'package:reservas_tardo/ui/core/ui/boton_grande.dart';
 import 'package:reservas_tardo/ui/core/ui/boton.dart';
+import 'package:reservas_tardo/ui/perfil/ui/perfil_screen.dart';
 
 class Login extends StatelessWidget {
   final bool mostrarFlecha;
@@ -33,81 +36,26 @@ class Login extends StatelessWidget {
             child: Image.asset(
               'assets/images/ejemplo_sala.png',
               width: double.infinity,
-              height: 290,
+              height: 300,
               fit: BoxFit.cover,
             ),
           ),
 
           const SizedBox(height: 6),
 
-          const Text(
-            "Iniciar sesión",
-            style: TextStyle(
-              fontSize: 48,
-              fontWeight: FontWeight.bold,
-              color: Color.fromARGB(255, 18, 11, 11),
-            ),
-          ),
+          const TextoApp(texto: "Iniciar sesión", tipo: TipoTexto.titulo),
           const SizedBox(height: 24),
 
           // Campo de Correo acortado y a la izquierda
-          SizedBox(
-            width: 300.0, // Ancho personalizado
-            child: Container(
-              height: 60,
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8.0),
-                color: const Color(0xFF5C5F9E),
-              ),
-              child: Center(
-                child: TextFormField(
-                  style: const TextStyle(
-                    color: Colors.white, // Texto de la contraseña
-                  ),
-                  cursorWidth: 2.0,
-                  cursorColor: Colors.white,
-                  decoration: const InputDecoration(
-                    labelText: "Correo electrónico",
-                    labelStyle: TextStyle(color: Colors.white),
-                    floatingLabelStyle: TextStyle(color: Colors.white),
-                    border: InputBorder.none,
-                  ),
-                ),
-              ),
-            ),
+          CampoTexto(
+            texto: "Correo electrónico",
+            tipoTeclado: TextInputType.emailAddress,
           ),
 
           const SizedBox(height: 16),
 
           // Campo de Contraseña acortado y a la izquierda
-          SizedBox(
-            width: 300.0, // Ancho personalizado
-            child: Container(
-              height: 60,
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8.0),
-                color: const Color(0xFF5C5F9E),
-              ),
-              child: Center(
-                child: TextFormField(
-                  obscureText: true,
-                  style: const TextStyle(
-                    color: Colors.white, // Texto de la contraseña
-                  ),
-                  cursorWidth: 2.0,
-                  cursorColor: Colors.white,
-                  decoration: const InputDecoration(
-                    labelText: "Contraseña",
-                    labelStyle: TextStyle(color: Colors.white),
-                    floatingLabelStyle: TextStyle(color: Colors.white),
-                    border: InputBorder.none,
-                  ),
-                ),
-              ),
-            ),
-          ),
+          CampoTexto(texto: "Contraseña", ocultarTexto: true),
 
           const SizedBox(height: 16),
 
@@ -120,7 +68,12 @@ class Login extends StatelessWidget {
                 icono: CupertinoIcons.square_arrow_right,
                 color: Color(0xFF5D9178),
                 onPressed: () {
-                  print("Sesión iniciada");
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const UserProfile(),
+                    ),
+                  );
                 },
               ),
             ),

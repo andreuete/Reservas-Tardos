@@ -28,14 +28,22 @@ class ButtonProfile extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Icon(icono, size: tamanoIcono),
+          Icon(icono, size: tamanoIcono, color: Colors.black),
           const SizedBox(width: 12),
           Text(
             texto,
-            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            style: const TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
           ),
           const Spacer(),
-          const Icon(CupertinoIcons.chevron_right, size: 24),
+          const Icon(
+            CupertinoIcons.chevron_right,
+            size: 24,
+            color: Colors.black,
+          ),
         ],
       ),
     );

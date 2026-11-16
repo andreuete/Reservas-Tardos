@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:reservas_tardo/ui/acceso/ui/login_screen.dart';
+import 'package:reservas_tardo/ui/components/generic/TextoApp.dart';
+import 'package:reservas_tardo/ui/components/login/ContainerForm.dart';
 import 'package:reservas_tardo/ui/core/ui/boton_grande.dart';
 import 'package:reservas_tardo/ui/core/ui/boton.dart';
 import 'package:flutter/cupertino.dart';
@@ -26,134 +28,27 @@ class Register extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          const Text(
-            "Crea tu cuenta",
-            style: TextStyle(
-              fontSize: 48,
-              fontWeight: FontWeight.bold,
-              color: Color.fromARGB(255, 18, 11, 11),
-            ),
-          ),
+          const TextoApp(texto: "Crea tu cuenta", tipo: TipoTexto.titulo),
           const SizedBox(height: 24),
 
           // Campo de Correo acortado y a la izquierda
-          SizedBox(
-            width: 300.0, // Ancho personalizado
-            child: Container(
-              height: 60,
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8.0),
-                color: const Color.fromARGB(255, 92, 95, 147),
-              ),
-              child: Center(
-                child: TextFormField(
-                  style: const TextStyle(
-                    color: Colors.white, // Texto de la contraseña
-                  ),
-                  cursorWidth: 2.0,
-                  cursorColor: Colors.white,
-                  decoration: const InputDecoration(
-                    labelText: "Nombre de usuario",
-                    labelStyle: TextStyle(color: Colors.white),
-                    floatingLabelStyle: TextStyle(color: Colors.white),
-                    border: InputBorder.none,
-                  ),
-                ),
-              ),
-            ),
-          ),
+          CampoTexto(texto: "Nombre de usuario"),
 
           const SizedBox(height: 16),
 
           // Campo de Contraseña acortado y a la izquierda
-          SizedBox(
-            width: 300.0, // Ancho personalizado
-            child: Container(
-              height: 60,
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8.0),
-                color: const Color.fromARGB(255, 92, 95, 147),
-              ),
-              child: Center(
-                child: TextFormField(
-                  obscureText: true,
-                  style: const TextStyle(
-                    color: Colors.white, // Texto de la contraseña
-                  ),
-                  cursorWidth: 2.0,
-                  cursorColor: Colors.white,
-                  decoration: const InputDecoration(
-                    labelText: "Correo electrónico",
-                    labelStyle: TextStyle(color: Colors.white),
-                    floatingLabelStyle: TextStyle(color: Colors.white),
-                    border: InputBorder.none,
-                  ),
-                ),
-              ),
-            ),
+          CampoTexto(
+            texto: "Correo electrónico",
+            tipoTeclado: TextInputType.emailAddress,
           ),
 
           const SizedBox(height: 16),
 
-          SizedBox(
-            width: 300.0, // Ancho personalizado
-            child: Container(
-              height: 60,
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8.0),
-                color: const Color.fromARGB(255, 92, 95, 147),
-              ),
-              child: Center(
-                child: TextFormField(
-                  obscureText: true,
-                  style: const TextStyle(
-                    color: Colors.white, // Texto de la contraseña
-                  ),
-                  cursorWidth: 2.0,
-                  cursorColor: Colors.white,
-                  decoration: const InputDecoration(
-                    labelText: "Contraseña",
-                    labelStyle: TextStyle(color: Colors.white),
-                    floatingLabelStyle: TextStyle(color: Colors.white),
-                    border: InputBorder.none,
-                  ),
-                ),
-              ),
-            ),
-          ),
+          CampoTexto(texto: "Contraseña", ocultarTexto: true),
 
           const SizedBox(height: 16),
 
-          SizedBox(
-            width: 300.0, // Ancho personalizado
-            child: Container(
-              height: 60,
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8.0),
-                color: const Color.fromARGB(255, 92, 95, 147),
-              ),
-              child: Center(
-                child: TextFormField(
-                  obscureText: true,
-                  style: const TextStyle(
-                    color: Colors.white, // Texto de la contraseña
-                  ),
-                  cursorWidth: 2.0,
-                  cursorColor: Colors.white,
-                  decoration: const InputDecoration(
-                    labelText: "Confirmar contraseña",
-                    labelStyle: TextStyle(color: Colors.white),
-                    floatingLabelStyle: TextStyle(color: Colors.white),
-                    border: InputBorder.none,
-                  ),
-                ),
-              ),
-            ),
-          ),
+          CampoTexto(texto: "Confirmar contraseña", ocultarTexto: true),
 
           const SizedBox(height: 16),
           Align(

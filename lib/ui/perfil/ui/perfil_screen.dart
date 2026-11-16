@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:reservas_tardo/ui/core/ui/boton.dart';
-import 'package:reservas_tardo/ui/core/ui/boton_grande.dart';
+import 'package:reservas_tardo/ui/components/generic/TextoApp.dart';
 import 'package:reservas_tardo/ui/core/ui/boton_perfil.dart';
 
 class UserProfile extends StatelessWidget {
@@ -35,26 +34,15 @@ class UserProfile extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
               const SizedBox(width: 15),
-              const Text(
-                "Mapi Mientos",
-                style: TextStyle(
-                  fontSize: 48,
-                  fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(255, 18, 11, 11),
-                ),
-              ),
+              const TextoApp(texto: "Mapi Mientos", tipo: TipoTexto.titulo),
             ],
           ),
 
           const SizedBox(height: 6),
 
-          const Text(
-            "mapimientos69@gmail.com",
-            style: TextStyle(
-              fontSize: 14,
-              fontStyle: FontStyle.italic,
-              color: Color.fromARGB(255, 18, 11, 11),
-            ),
+          const TextoApp(
+            texto: "mapimientos69@gmail.com",
+            tipo: TipoTexto.cuerpo,
           ),
 
           const SizedBox(height: 24),
@@ -65,7 +53,7 @@ class UserProfile extends StatelessWidget {
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
-                color: Colors.white,
+                color: Color.fromARGB(255, 92, 95, 147),
               ),
               child: Row(
                 children: [
@@ -79,16 +67,20 @@ class UserProfile extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
+                            color: Colors.white,
                           ),
                         ),
                         const SizedBox(height: 4),
-                        const Text("5", style: TextStyle(fontSize: 32)),
+                        const Text(
+                          "5",
+                          style: TextStyle(fontSize: 32, color: Colors.white),
+                        ),
                       ],
                     ),
                   ),
 
                   // SEPARADOR
-                  Container(width: 1, height: 55, color: Colors.black26),
+                  Container(width: 1, height: 55, color: Colors.white),
 
                   // EVENTOS ORGANIZADOS
                   Expanded(
@@ -100,10 +92,14 @@ class UserProfile extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
+                            color: Colors.white,
                           ),
                         ),
                         const SizedBox(height: 4),
-                        const Text("3", style: TextStyle(fontSize: 32)),
+                        const Text(
+                          "3",
+                          style: TextStyle(fontSize: 32, color: Colors.white),
+                        ),
                       ],
                     ),
                   ),
@@ -133,7 +129,7 @@ class UserProfile extends StatelessWidget {
                 child: ButtonProfile(
                   texto: "Mis reservas",
                   icono: CupertinoIcons.calendar,
-                  color: const Color.fromARGB(255, 92, 95, 147),
+                  color: Colors.white,
                   onPressed: () {
                     print("Mis reservas");
                   },
@@ -146,8 +142,8 @@ class UserProfile extends StatelessWidget {
                 height: 50,
                 child: ButtonProfile(
                   texto: "Mis eventos",
-                  icono: CupertinoIcons.person_3,
-                  color: const Color.fromARGB(255, 92, 95, 147),
+                  icono: CupertinoIcons.person_3_fill,
+                  color: Colors.white,
                   onPressed: () {
                     print("Mis eventos");
                   },
@@ -161,7 +157,7 @@ class UserProfile extends StatelessWidget {
                 child: ButtonProfile(
                   texto: "Configuración",
                   icono: CupertinoIcons.gear_solid,
-                  color: const Color.fromARGB(255, 92, 95, 147),
+                  color: Colors.white,
                   onPressed: () {
                     print("Mi perfil");
                   },
