@@ -6,7 +6,6 @@ import 'package:reservas_tardo/ui/components/login/ContainerForm.dart';
 import 'package:reservas_tardo/ui/core/ui/boton_grande.dart';
 import 'package:reservas_tardo/ui/core/ui/boton.dart';
 import 'package:reservas_tardo/ui/core/ui/main_navigation.dart';
-import 'package:reservas_tardo/ui/perfil/ui/perfil_screen.dart';
 
 class Login extends StatelessWidget {
   final bool mostrarFlecha;
