@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reservas_tardo/ui/components/generic/TextoAppBlanco.dart';
 
 class ReservaTarjeta extends StatelessWidget {
   final String nombre_sala;
@@ -32,27 +33,14 @@ class ReservaTarjeta extends StatelessWidget {
           Align(
             // TITULO
             alignment: Alignment.centerLeft,
-            child: Text(
-              nombre_sala,
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight(800),
-                color: Colors.white,
-              ),
-              textAlign: TextAlign.left,
+            child: TextoAppBlanco(
+              texto: nombre_sala,
+              tipo: TipoTexto.subtitulo,
             ),
           ),
           Align(
             alignment: Alignment.centerLeft,
-            child: Text(
-              zona,
-              style: TextStyle(
-                fontSize: 13,
-                fontWeight: FontWeight(400),
-                color: Color.fromARGB(255, 242, 232, 199),
-              ),
-              textAlign: TextAlign.left,
-            ),
+            child: TextoAppBlanco(texto: zona, tipo: TipoTexto.descripcion),
           ),
           Row(
             children: [
@@ -60,14 +48,9 @@ class ReservaTarjeta extends StatelessWidget {
                 flex: 3,
                 child: Align(
                   alignment: Alignment.centerLeft,
-                  child: Text(
-                    "$fecha $horaIn - $horaOut",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight(400),
-                      color: Colors.white,
-                    ),
-                    textAlign: TextAlign.left,
+                  child: TextoAppBlanco(
+                    texto: "$fecha $horaIn - $horaOut",
+                    tipo: TipoTexto.cuerpo,
                   ),
                 ),
               ),
@@ -75,14 +58,9 @@ class ReservaTarjeta extends StatelessWidget {
                 flex: 1,
                 child: Align(
                   alignment: Alignment.center,
-                  child: Text(
-                    "$precio €",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight(400),
-                      color: Colors.white,
-                    ),
-                    textAlign: TextAlign.left,
+                  child: TextoAppBlanco(
+                    texto: "$precio €",
+                    tipo: TipoTexto.cuerpo,
                   ),
                 ),
               ),
@@ -90,14 +68,9 @@ class ReservaTarjeta extends StatelessWidget {
           ),
           Align(
             alignment: Alignment.centerLeft,
-            child: Text(
-              "Ver detalles ->",
-              style: TextStyle(
-                fontSize: 13,
-                fontWeight: FontWeight(400),
-                color: Color.fromARGB(255, 242, 232, 199),
-              ),
-              textAlign: TextAlign.left,
+            child: TextoAppBlanco(
+              texto: "Ver detalles ->",
+              tipo: TipoTexto.descripcion,
             ),
           ),
         ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reservas_tardo/ui/components/generic/TextoAppBlanco.dart';
 import 'package:reservas_tardo/ui/espacios/ui/espacio_detalle_screen.dart';
 
 class EspacioTarjeta extends StatelessWidget {
@@ -43,26 +44,16 @@ class EspacioTarjeta extends StatelessWidget {
             //),
             Align(
               alignment: Alignment.centerLeft,
-              child: Text(
-                nombre_sala,
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight(800),
-                  color: Colors.white,
-                ),
-                textAlign: TextAlign.left,
+              child: TextoAppBlanco(
+                texto: "nombre_sala",
+                tipo: TipoTexto.subtitulo,
               ),
             ),
             Align(
               alignment: Alignment.centerLeft,
-              child: Text(
-                "$zona · $personas personas - $tipo",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight(400),
-                  color: Colors.white,
-                ),
-                textAlign: TextAlign.left,
+              child: TextoAppBlanco(
+                texto: "$zona · $personas personas - $tipo",
+                tipo: TipoTexto.cuerpo,
               ),
             ),
           ],

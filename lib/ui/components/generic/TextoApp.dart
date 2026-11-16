@@ -21,13 +21,13 @@ class TextoApp extends StatelessWidget {
         color: Color.fromARGB(255, 18, 11, 11),
       ),
       TipoTexto.subtitulo => const TextStyle(
-        fontSize: 18,
+        fontSize: 24,
         fontWeight: FontWeight.w600,
       ),
-      TipoTexto.cuerpo => const TextStyle(fontSize: 14),
+      TipoTexto.cuerpo => const TextStyle(fontSize: 16),
       TipoTexto.descripcion => const TextStyle(
-        fontSize: 12,
-        color: Color.fromARGB(255, 211, 209, 209),
+        fontSize: 13,
+        color: Color.fromARGB(255, 34, 30, 30), //gris oscurillo
       ),
     };
 
