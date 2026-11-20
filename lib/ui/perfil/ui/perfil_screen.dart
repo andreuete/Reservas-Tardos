@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:reservas_tardo/data/services/datos_demo.dart';
 import 'package:reservas_tardo/ui/components/generic/TextoApp.dart';
 import 'package:reservas_tardo/ui/core/ui/boton_perfil.dart';
 
@@ -8,6 +9,11 @@ class UserProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final usuario = DatosDemo.usuario;
+    final reservasActivas = DatosDemo.reservas
+        .where((reserva) => reserva.estaActiva)
+        .length;
+
     return Scaffold(
       backgroundColor: const Color(0xFFF2E8C7),
       appBar: AppBar(
@@ -28,22 +34,19 @@ class UserProfile extends StatelessWidget {
           Row(
             children: [
               Image.asset(
-                'assets/images/pimiento-sorpresa.jpeg',
+                usuario.imagen,
                 width: 100,
                 height: 100,
                 fit: BoxFit.cover,
               ),
               const SizedBox(width: 15),
-              const TextoApp(texto: "Mapi Mientos", tipo: TipoTexto.titulo),
+              TextoApp(texto: usuario.nombre, tipo: TipoTexto.titulo),
             ],
           ),
 
           const SizedBox(height: 6),
 
-          const TextoApp(
-            texto: "mapimientos69@gmail.com",
-            tipo: TipoTexto.cuerpo,
-          ),
+          TextoApp(texto: usuario.email, tipo: TipoTexto.cuerpo),
 
           const SizedBox(height: 24),
 
@@ -71,9 +74,12 @@ class UserProfile extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 4),
-                        const Text(
-                          "5",
-                          style: TextStyle(fontSize: 32, color: Colors.white),
+                        Text(
+                          "$reservasActivas",
+                          style: const TextStyle(
+                            fontSize: 32,
+                            color: Colors.white,
+                          ),
                         ),
                       ],
                     ),
@@ -96,9 +102,12 @@ class UserProfile extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 4),
-                        const Text(
-                          "3",
-                          style: TextStyle(fontSize: 32, color: Colors.white),
+                        Text(
+                          "${usuario.eventosOrganizados}",
+                          style: const TextStyle(
+                            fontSize: 32,
+                            color: Colors.white,
+                          ),
                         ),
                       ],
                     ),

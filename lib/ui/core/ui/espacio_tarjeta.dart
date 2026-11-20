@@ -1,22 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:reservas_tardo/domain/models/espacio.dart';
 import 'package:reservas_tardo/ui/components/generic/TextoAppBlanco.dart';
 import 'package:reservas_tardo/ui/espacios/ui/espacio_detalle_screen.dart';
 
 class EspacioTarjeta extends StatelessWidget {
-  final String nombre_sala;
-  final String zona;
-  final int personas;
-  final String tipo;
-  final String img;
+  final Espacio espacio;
 
-  const EspacioTarjeta({
-    super.key,
-    required this.nombre_sala,
-    this.zona = "Centro",
-    required this.personas,
-    this.tipo = "Reuniones",
-    this.img = "assets/images/pimiento-sorpresa.jpeg",
-  });
+  const EspacioTarjeta({super.key, required this.espacio});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +14,9 @@ class EspacioTarjeta extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const EspacioDetalleScreen()),
+          MaterialPageRoute(
+            builder: (context) => EspacioDetalleScreen(espacio: espacio),
+          ),
         );
       },
       child: Container(
@@ -36,7 +28,7 @@ class EspacioTarjeta extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Image.asset(img, width: 250, height: 150),
+            Image.asset(espacio.imagen, width: 250, height: 150),
             //Placeholder(
             //  color: Colors.black54,
             //  fallbackHeight: 200,
@@ -45,14 +37,15 @@ class EspacioTarjeta extends StatelessWidget {
             Align(
               alignment: Alignment.centerLeft,
               child: TextoAppBlanco(
-                texto: "nombre_sala",
+                texto: espacio.nombre,
                 tipo: TipoTexto.subtitulo,
               ),
             ),
             Align(
               alignment: Alignment.centerLeft,
               child: TextoAppBlanco(
-                texto: "$zona · $personas personas - $tipo",
+                texto:
+                    "${espacio.zona} · ${espacio.capacidad} personas - ${espacio.tipo}",
                 tipo: TipoTexto.cuerpo,
               ),
             ),

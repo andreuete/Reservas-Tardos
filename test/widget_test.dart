@@ -1,30 +1,45 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:reservas_tardo/main.dart';
+import 'package:reservas_tardo/data/services/datos_demo.dart';
+import 'package:reservas_tardo/ui/espacios/ui/espacios_screen.dart';
+import 'package:reservas_tardo/ui/reservas/ui/mis_reservas_screen.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets('shows spaces and their domain details', (
+    WidgetTester tester,
+  ) async {
+    await tester.pumpWidget(const MaterialApp(home: EspaciosScreen()));
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    expect(find.text(DatosDemo.espacios[0].nombre), findsOneWidget);
+    expect(find.text(DatosDemo.espacios[1].nombre), findsOneWidget);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    await tester.ensureVisible(find.text(DatosDemo.espacios[1].nombre));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text(DatosDemo.espacios[1].nombre));
+    await tester.pumpAndSettle();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    expect(find.text(DatosDemo.espacios[1].descripcion), findsOneWidget);
+  });
+
+  testWidgets('lists the remaining spaces from the domain model', (
+    WidgetTester tester,
+  ) async {
+    await tester.pumpWidget(const MaterialApp(home: EspaciosScreen()));
+
+    await tester.scrollUntilVisible(
+      find.text(DatosDemo.espacios.last.nombre),
+      500,
+    );
+
+    expect(find.text(DatosDemo.espacios.last.nombre), findsOneWidget);
+  });
+
+  testWidgets('shows reservation dates and prices from reservation models', (
+    WidgetTester tester,
+  ) async {
+    await tester.pumpWidget(const MaterialApp(home: MisReservasScreen()));
+
+    expect(find.text('21 NOV 21:00 - 22:00'), findsOneWidget);
+    expect(find.text('300 €'), findsOneWidget);
   });
 }

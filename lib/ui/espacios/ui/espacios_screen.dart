@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:reservas_tardo/data/services/datos_demo.dart';
 import 'package:reservas_tardo/ui/components/generic/AppbarIcono.dart';
 import 'package:reservas_tardo/ui/components/generic/TextoApp.dart';
 import 'package:reservas_tardo/ui/core/ui/espacio_tarjeta.dart';
 
 class EspaciosScreen extends StatelessWidget {
+  const EspaciosScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppbarIcono(NombrePagina: "Reservas Tardo"),
       body: ListView(
+        padding: const EdgeInsets.all(16),
         children: [
           TextoApp(
             texto: "Tu próximo espacio, más cerca",
@@ -18,17 +22,8 @@ class EspaciosScreen extends StatelessWidget {
             texto: "Escoge entre todas nuestras salas disponibles",
             tipo: TipoTexto.descripcion,
           ),
-          EspacioTarjeta(nombre_sala: "Sala 1", personas: 21, zona: "Interior"),
-          EspacioTarjeta(
-            nombre_sala: "Sala 2",
-            personas: 23,
-            tipo: "Presentaciones",
-          ),
-          EspacioTarjeta(
-            nombre_sala: "Wc",
-            personas: 1,
-            zona: "Privada",
-            tipo: "Necesidades",
+          ...DatosDemo.espacios.map(
+            (espacio) => EspacioTarjeta(espacio: espacio),
           ),
         ],
       ),

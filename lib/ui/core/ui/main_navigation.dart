@@ -14,9 +14,9 @@ class _MainNavigationState extends State<MainNavigation> {
   int _selectedIndex = 0;
 
   final List<Widget> _pages = [
-    EspaciosScreen(),
+    const EspaciosScreen(),
     NuevaReservaScreen(),
-    MisReservasScreen(),
+    const MisReservasScreen(),
   ];
 
   @override

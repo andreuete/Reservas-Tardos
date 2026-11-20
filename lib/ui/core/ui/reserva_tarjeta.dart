@@ -1,23 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:reservas_tardo/domain/models/reserva.dart';
 import 'package:reservas_tardo/ui/components/generic/TextoAppBlanco.dart';
 
 class ReservaTarjeta extends StatelessWidget {
-  final String nombre_sala;
-  final String zona;
-  final String fecha;
-  final String horaIn;
-  final String horaOut;
-  final int precio;
+  final Reserva reserva;
 
-  const ReservaTarjeta({
-    super.key,
-    required this.nombre_sala,
-    required this.zona,
-    required this.fecha,
-    required this.horaIn,
-    required this.horaOut,
-    required this.precio,
-  });
+  const ReservaTarjeta({super.key, required this.reserva});
+
+  String _formatearFecha(DateTime fecha) {
+    const meses = [
+      'ENE',
+      'FEB',
+      'MAR',
+      'ABR',
+      'MAY',
+      'JUN',
+      'JUL',
+      'AGO',
+      'SEP',
+      'OCT',
+      'NOV',
+      'DIC',
+    ];
+    return '${fecha.day} ${meses[fecha.month - 1]}';
+  }
+
+  String _formatearHora(DateTime fecha) =>
+      '${fecha.hour.toString().padLeft(2, '0')}:${fecha.minute.toString().padLeft(2, '0')}';
 
   @override
   Widget build(BuildContext context) {
@@ -34,13 +43,16 @@ class ReservaTarjeta extends StatelessWidget {
             // TITULO
             alignment: Alignment.centerLeft,
             child: TextoAppBlanco(
-              texto: nombre_sala,
+              texto: reserva.espacio.nombre,
               tipo: TipoTexto.subtitulo,
             ),
           ),
           Align(
             alignment: Alignment.centerLeft,
-            child: TextoAppBlanco(texto: zona, tipo: TipoTexto.descripcion),
+            child: TextoAppBlanco(
+              texto: reserva.espacio.zona,
+              tipo: TipoTexto.descripcion,
+            ),
           ),
           Row(
             children: [
@@ -49,7 +61,8 @@ class ReservaTarjeta extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: TextoAppBlanco(
-                    texto: "$fecha $horaIn - $horaOut",
+                    texto:
+                        "${_formatearFecha(reserva.inicio)} ${_formatearHora(reserva.inicio)} - ${_formatearHora(reserva.fin)}",
                     tipo: TipoTexto.cuerpo,
                   ),
                 ),
@@ -59,7 +72,7 @@ class ReservaTarjeta extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.center,
                   child: TextoAppBlanco(
-                    texto: "$precio €",
+                    texto: "${reserva.precio.toStringAsFixed(0)} €",
                     tipo: TipoTexto.cuerpo,
                   ),
                 ),
